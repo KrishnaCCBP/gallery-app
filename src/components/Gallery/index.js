@@ -80,23 +80,13 @@ class Gallery extends Component {
     activeThumbnailId: imagesList[0].id,
   }
 
-  getClickedImageDetails = () => {
-    const {activeThumbnailId} = this.state
-    const clickedImageDetails = imagesList.filter(
-      eachImageDetails => eachImageDetails.id === activeThumbnailId,
-    )
-    return clickedImageDetails
-  }
-
   clickThumbnail = id => {
     this.setState({activeThumbnailId: id})
   }
 
   render() {
     const {activeThumbnailId} = this.state
-    const clickedImageDetails = this.getClickedImageDetails()
-    console.log(clickedImageDetails)
-    const {imageUrl, imageAltText} = clickedImageDetails
+    const {imageUrl, imageAltText} = imagesList[activeThumbnailId]
 
     return (
       <div className="app-container">
